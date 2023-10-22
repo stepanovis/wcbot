@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма</title>
+</head>
+<body>
+  <div id="main">
+    <h1>Введите данные для бота</h1>
+    <img src="https://kartinki.pics/uploads/posts/2020-07/1593792072_57-p-belie-serdechki-na-chernom-fone-75.jpg">
+    <form action="/submit" method="post">
+        <label for="date1">Дата начала месячных:</label>
+        <input type="date" id="date1" name="date1" required><br>
+
+        <label for="date2">Дата завершения месячных:</label>
+        <input type="date" id="date2" name="date2" required><br>
+
+        <label for="number">Дней между месячными:</label>
+        <input type="number" id="number" name="number" required><br>
+
+        <input type="submit" value="Отправить">
+    </form>
+  </div>
+</body>
+</html>
