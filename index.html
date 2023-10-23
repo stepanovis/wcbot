@@ -2,23 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Форма</title>
+    <title>Форма ввода данных</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Serif;
+            background-color: #cac1b7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: transparent;
+            border-style: solid;
+            border-color: #000000;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 350px;
+            height: 400px;
+            text-align: left;
+        }
+
+        .input-label {
+            font-family: "Roboto Thin", sans-serif;
+            color: #000;
+            font-size: 14px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            height: 60px;
+        }
+
+        .input-group input {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid black;
+            border-color: #000;
+            font-size: 16px;
+        }
+
+        .input-group input[type="date"]{
+            background: transparent;
+            height: 40px;
+        }
+        .input-group input[type="number"] {
+            background: transparent;
+            height: 40px;
+        }
+
+        .btn {
+            background-color: transparent;
+            color: #2b2d30;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;]
+            border-bottom-style: revert;
+
+        }
+
+        .btn:hover {
+            border-color: #000;
+            color: #000;
+            border-width: 2px;
+        }
+
+    </style>
 </head>
+
 <body>
-  <div id="main">
-    <h1>Введите данные для бота</h1>
-    <form action="/submit" method="post">
-        <label for="date1">Дата начала месячных:</label>
-        <input type="date" id="date1" name="date1" required><br>
-
-        <label for="date2">Дата завершения месячных:</label>
-        <input type="date" id="date2" name="date2" required><br>
-
-        <label for="number">Дней между месячными:</label>
-        <input type="number" id="number" name="number" required><br>
-
-        <input type="submit" value="Отправить">
-    </form>
-  </div>
+    <div class="container">
+        <form>
+            <div class="input-group">
+                <label for="date1" class="input-label">Дата начала последних месячных</label>
+                <input type="date" id="date1" name="date1">
+            </div>
+            <div class="input-group">
+                <label for="date2" class="input-label">Дата завершения последних месячных</label>
+                <input type="date" id="date2" name="date2">
+            </div>
+            <div class="input-group">
+                <label for="number" class="input-label">Количество дней между месячными</label>
+                <input type="number" id="number" name="number">
+            </div>
+            <button style="align-items: center" type="submit" class="btn">Подтвердить</button>
+        </form>
+    </div>
 </body>
+
 </html>
