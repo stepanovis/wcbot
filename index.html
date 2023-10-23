@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Форма ввода данных</title>
+    <title>Калькулятор циклах</title>
     <style>
         body {
             font-family: "Helvetica Neue", Serif;
@@ -70,23 +70,49 @@
 </head>
 
 <body>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <div class="container">
         <form>
             <div class="input-group">
-                <label for="date1" class="input-label">Дата начала последних месячных</label>
-                <input type="date" id="date1" name="date1">
+                <label for="red_start_date" class="input-label">Дата начала последних месячных</label>
+                <input type="date" placeholder="Начало месячных" id="red_start_date" name="red_start_date">
             </div>
             <div class="input-group">
-                <label for="date2" class="input-label">Дата завершения последних месячных</label>
-                <input type="date" id="date2" name="date2">
+                <label for="red_end_date" class="input-label">Дата завершения последних месячных</label>
+                <input type="date"  id="red_end_date" name="red_end_date">
             </div>
             <div class="input-group">
-                <label for="number" class="input-label">Количество дней между месячными</label>
-                <input type="number" id="number" name="number">
+                <label for="red_cycle_days" class="input-label">Количество дней между месячными</label>
+                <input type="number" placeholder="Дней между" id="red_cycle_days" name="number">
             </div>
-            <button style="align-items: center" type="submit" class="btn">Подтвердить</button>
+            <button id="red_data_confirm" style="align-items: center" type="submit" class="btn">Подтвердить</button>
         </form>
     </div>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let red_confirm = document.getElementById("red_data_confirm");
+
+        red_confirm.addEventListener("click", () => {
+            let red_start = document.getElementById("red_start_date").value
+            let red_end = document.getElementById("red_start_date").value
+            let red_cycle = document.getElementById("red_cycle_days").value
+
+            let data={
+                red_start: red_start,
+                red_end: red_end,
+                red_cycle: red_cycle
+            }
+
+            tg.sendData(JSON.stringify(data))
+
+            tg.close();
+        })
+
+        if (red_start > red_end) document.getElementById("error");
+
+
+        let red_start = document.getElementById("red_start_date ")
+    </script>
 </body>
 
 </html>
